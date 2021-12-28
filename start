@@ -8,7 +8,7 @@ _set_bot () {
     local zippath
     zippath="kopp.zip"
     echo "  Downloading source code ..."
-    bash $(_get_ziplink)
+    $(_get_ziplink)
     echo "  Unpacking Data ..."
     kopath=$(zipinfo -1 "$zippath" | grep -v "/.");
     unzip -qq "$zippath"
